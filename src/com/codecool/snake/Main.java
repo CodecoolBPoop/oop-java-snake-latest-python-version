@@ -1,5 +1,6 @@
 package com.codecool.snake;
 
+import com.sun.prism.paint.Color;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
