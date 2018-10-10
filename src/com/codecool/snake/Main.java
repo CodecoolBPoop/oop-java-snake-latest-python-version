@@ -2,7 +2,13 @@ package com.codecool.snake;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextArea;
+import java.awt.*;
+
 
 public class Main extends Application {
 
@@ -19,5 +25,6 @@ public class Main extends Application {
         primaryStage.show();
         game.start();
     }
+
 
 }

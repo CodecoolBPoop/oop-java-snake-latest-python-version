@@ -3,6 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -26,6 +27,26 @@ public class Globals {
     public static List<GameEntity> newGameObjects; // Holds game objects crated in this frame.
     public static List<GameEntity> oldGameObjects; // Holds game objects that will be destroyed this frame.
     public static GameLoop gameLoop;
+
+    // Health Text stuff
+    public static int snakeHealth1;
+    public static int snakeHealth2;
+    public static Text healthText1 = new Text();
+    public static Text healthText2 = new Text();
+
+    // Score Text stuff
+    public static int score1;
+    public static int score2;
+    public static Text scoreText1 = new Text();
+    public static Text scoreText2 = new Text();
+
+    // Game Over stuff
+    public static Text gameOver = new Text();
+    public static boolean isGameOver = true;
+
+    // Multiplayer field
+    public static boolean multiPlayer;
+
 
     static {
         gameObjects = new LinkedList<>();
