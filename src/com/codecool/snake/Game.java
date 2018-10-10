@@ -22,6 +22,7 @@ public class Game extends Pane {
         new ChocolateFrog(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
+        new SimplePowerup(this);
     }
 
     public void start() {

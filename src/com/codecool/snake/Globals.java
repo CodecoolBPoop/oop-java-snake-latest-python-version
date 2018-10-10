@@ -17,10 +17,10 @@ public class Globals {
     public static Image snakeHead = new Image("snake_head.png");
     public static Image snakeBody = new Image("snake_body.png");
     public static Image simpleEnemy = new Image("simple_enemy.png");
-    public static Image powerupBerry_1 = new Image("powerup_berry_1.png");
-    public static Image powerupBerry_2 = new Image("powerup_berry_2.png");
-    public static Image powerupBerry_3 = new Image("powerup_berry_3.png");
-    public static Image powerupBerry_4 = new Image("powerup_berry_4.png");
+    public static Image powerupBerry_1 = new Image("HealthPoint_PowerUp.png");
+    public static Image powerupBerry_2 = new Image("Debuff_1.png");
+    public static Image powerupBerry_3 = new Image("Speed_PowerUp.png");
+    public static Image powerupBerry_4 = new Image("Debuff_2.png");
     public static Image frog = new Image("frog.png");
     public static Image dementorJar = new Image("dementor.png");
     //.. put here the other images you want to use

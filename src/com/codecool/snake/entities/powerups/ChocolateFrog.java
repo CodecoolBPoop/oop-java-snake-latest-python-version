@@ -14,7 +14,7 @@ import java.util.Random;
 public class ChocolateFrog extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private int speed = 2;
+    private int speed = 1;
 
     public ChocolateFrog(Pane pane) {
         super(pane);
