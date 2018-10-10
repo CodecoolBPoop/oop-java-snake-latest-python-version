@@ -1,6 +1,9 @@
 package com.codecool.snake;
 
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.enemies.Harry;
+import com.codecool.snake.entities.enemies.Hermione;
+import com.codecool.snake.entities.enemies.Ron;
+//import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.Scene;
@@ -11,10 +14,10 @@ public class Game extends Pane {
     public Game() {
         new SnakeHead(this, 500, 500);
 
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
+        new Harry(this);
+        new Ron(this);
+        new Hermione(this);
+        //new SimpleEnemy(this);
 
         new SimplePowerup(this);
         new SimplePowerup(this);
