@@ -8,6 +8,7 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.powerups.Dementor;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.util.Random;
 
@@ -38,6 +39,11 @@ public class SnakeHead extends GameEntity implements Animatable {
         }
         if (Globals.rightKeyDown) {
             dir = dir + turnRate;
+        }
+        if (Globals.escKeyDown) {
+            Stage stage =(Stage) this.getScene().getWindow();
+            Globals.gameLoop.stop();
+            stage.close();
         }
         // set rotation and position
         setRotate(dir);
