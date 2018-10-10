@@ -1,9 +1,9 @@
-package com.codecool.snake.entities.powerups;
+package com.codecool.snake.entities.enemies;
 
-import com.codecool.snake.Globals;
-import com.codecool.snake.Utils;
-import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
+import com.codecool.snake.Globals;
+import com.codecool.snake.entities.Animatable;
+import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
@@ -11,16 +11,18 @@ import javafx.scene.layout.Pane;
 
 import java.util.Random;
 
-public class ChocolateFrog extends GameEntity implements Animatable, Interactable {
+// a simple enemy TODO make better ones.
+public class Harry extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private int speed = 2;
+    private static final int damage = 10;
 
-    public ChocolateFrog(Pane pane) {
+    public Harry(Pane pane) {
         super(pane);
-        setImage(Globals.frog);
-        pane.getChildren().add(this);
 
+        setImage(Globals.Harry);
+        pane.getChildren().add(this);
+        int speed = 1;
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
@@ -32,32 +34,23 @@ public class ChocolateFrog extends GameEntity implements Animatable, Interactabl
 
     @Override
     public void step() {
-        Random rnd = new Random();
-        int changeDirection = rnd.nextInt(100)+1;
         if (isOutOfBounds()) {
             destroy();
-            new ChocolateFrog(pane);
-        }
-
-        if (changeDirection == 5) {
-            double direction = rnd.nextDouble() * 360;
-            setRotate(direction);
-            heading = Utils.directionToVector(direction, speed);
+            new Harry(pane);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
     }
 
     @Override
-    public void apply(SnakeHead snakeHead) {
-        snakeHead.addPart(4);
+    public void apply(SnakeHead player) {
+        player.changeHealth(-damage);
         destroy();
-        new ChocolateFrog(pane);
+        new Harry(pane);
     }
 
     @Override
     public String getMessage() {
-        return "Got FROG pover-up";
+        return "10 damage";
     }
-
 }
