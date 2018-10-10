@@ -30,8 +30,8 @@ public class Hermione extends GameEntity implements Animatable, Interactable {
             setX(width);
             setY(height);
         } else {
-            setX(width + 150);
-            setY(height + 150);
+            setX(width + 500);
+            setY(height + 500);
         }
 
         double direction = rnd.nextDouble() * 360;
