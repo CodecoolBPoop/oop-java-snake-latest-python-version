@@ -1,4 +1,4 @@
-/*package com.codecool.snake.entities.enemies;
+package com.codecool.snake.entities.enemies;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
@@ -12,17 +12,17 @@ import javafx.scene.layout.Pane;
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
-public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
+public class Hermione extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private static final int damage = 10;
+    private static final int damage = 5;
 
-    public SimpleEnemy(Pane pane) {
+    public Hermione(Pane pane) {
         super(pane);
 
-        setImage(Globals.simpleEnemy);
+        setImage(Globals.Hermione);
         pane.getChildren().add(this);
-        int speed = 1;
+        int speed = 2;
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
@@ -36,7 +36,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public void step() {
         if (isOutOfBounds()) {
             destroy();
-            new SimpleEnemy(pane);
+            new Hermione(pane);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -46,10 +46,11 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        new Hermione(pane);
     }
 
     @Override
     public String getMessage() {
-        return "10 damage";
+        return "5 damage";
     }
-}*/
+}
