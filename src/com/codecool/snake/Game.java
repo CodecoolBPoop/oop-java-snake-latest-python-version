@@ -33,6 +33,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = true; break;
                 case RIGHT: Globals.rightKeyDown  = true; break;
+                case ESCAPE: Globals.escKeyDown = true; break;
             }
         });
 
@@ -40,6 +41,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = false; break;
                 case RIGHT: Globals.rightKeyDown  = false; break;
+                case ESCAPE: Globals.escKeyDown = false; break;
             }
         });
         Globals.gameLoop = new GameLoop();
