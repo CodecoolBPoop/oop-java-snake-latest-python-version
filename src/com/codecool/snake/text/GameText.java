@@ -20,7 +20,7 @@ public class GameText extends GameEntity {
                 pane.getChildren().add(Globals.gameOver);
                 break;
             case 2:
-                setText(pane, "Player2 Health: ", Globals.snakeHealth2, Globals.healthText2, 0.1, 0.05, Color.GREENYELLOW, 20);
+                setText(pane, "Player2 Health: ", Globals.snakeHealth2, Globals.healthText2, 0.01, 0.05, Color.GREENYELLOW, 20);
                 setText(pane, "Player2 Score: ", Globals.score2, Globals.scoreText2, 0.01, 0.08, Color.BLUE, 20);
                 break;
             default:break;
