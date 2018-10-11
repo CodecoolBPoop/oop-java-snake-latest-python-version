@@ -15,7 +15,7 @@ import java.util.Random;
 public class Hermione extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private static final int damage = 5;
+    private static final int damage = 15;
 
     public Hermione(Pane pane) {
         super(pane);

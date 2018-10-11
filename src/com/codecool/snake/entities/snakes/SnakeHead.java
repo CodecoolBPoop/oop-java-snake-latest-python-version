@@ -51,6 +51,14 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     public void step() {
 
+        if (score1 < 0) {
+            score1 = 0;
+        }
+
+        if (score2 < 0) {
+            score2 = 0;
+        }
+
         double dir = getRotate();
 
         if (snakeID == 1) {

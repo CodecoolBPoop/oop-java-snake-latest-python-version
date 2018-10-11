@@ -16,7 +16,7 @@ import java.util.Random;
 public class Ron extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private static final int damage = 10;
+    private static final int damage = 20;
 
     public Ron(Pane pane) {
         super(pane);
