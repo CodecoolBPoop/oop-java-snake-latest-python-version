@@ -16,17 +16,18 @@ public abstract class GameEntity extends ImageView {
     }
 
     public void destroy() {
-        if (getParent() != null) {
-            pane.getChildren().remove(this);
+        if (!Globals.isGameOver) {
+            if (getParent() != null) {
+                pane.getChildren().remove(this);
+            }
+            Globals.removeGameObject(this);
         }
-        Globals.removeGameObject(this);
     }
 
     protected boolean isOutOfBounds() {
-        if (getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
-            getY() > Globals.WINDOW_HEIGHT || getY() < 0) {
-            return true;
-        }
-        return false;
+        return getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
+                getY() > Globals.WINDOW_HEIGHT || getY() < 0;
     }
+
+
 }
