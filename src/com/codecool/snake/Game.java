@@ -1,8 +1,6 @@
 package com.codecool.snake;
 
-//import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.ChocolateFrog;
-import com.codecool.snake.entities.powerups.Dementor;
 import com.codecool.snake.entities.enemies.Harry;
 import com.codecool.snake.entities.enemies.Hermione;
 import com.codecool.snake.entities.enemies.Ron;

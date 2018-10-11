@@ -22,7 +22,6 @@ public class Globals {
     public static Image Ron = new Image("ron.png");
     public static Image Hermione = new Image("hermione.png");
 
-    public static Image powerupBerry = new Image("powerup_berry.png");
     public static Image background = new Image("hogwarts.png");
     public static double snakeHeadX;
     public static double snakeHeadY;
