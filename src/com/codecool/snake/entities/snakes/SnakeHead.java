@@ -5,9 +5,12 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
+import javafx.geometry.Bounds;
+import com.codecool.snake.entities.powerups.Dementor;
 import com.codecool.snake.text.GameText;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import java.util.Random;
 
 import static com.codecool.snake.Globals.*;
 
@@ -15,6 +18,7 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int snakeID;
+    private int snakeLength = 4;
 
     public SnakeHead(Pane pane, int xc, int yc, int id) {
         super(pane);
@@ -77,6 +81,15 @@ public class SnakeHead extends GameEntity implements Animatable {
         // set rotation
         setRotate(dir);
 
+        Point2D heading = Utils.directionToVector(dir, speed);
+
+        setX(getX() + heading.getX());
+        setY(getY() + heading.getY());
+
+        Globals.snakeHeadX = getX();
+        Globals.snakeHeadY = getY();
+
+
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
             if (getBoundsInParent().intersects(entity.getBoundsInParent())) {
@@ -133,8 +146,16 @@ public class SnakeHead extends GameEntity implements Animatable {
     }
 
     public void addPart(int numParts) {
+        Random rnd = new Random();
+        int spawnDementor = rnd.nextInt(100)+1;
+
         for (int i = 0; i < numParts; i++) {
             tail = new SnakeBody(pane, tail, this);
+        }
+        this.snakeLength += numParts;
+
+        if (spawnDementor >= 5 && spawnDementor <= 10) {
+            new Dementor(pane);
         }
     }
 
@@ -173,4 +194,24 @@ public class SnakeHead extends GameEntity implements Animatable {
     public Double getYCoordinate() {
         return getY();
     }
+  
+    public void changeSpeed(double diff) {
+        Random rnd = new Random();
+        int spawnDementor = rnd.nextInt(100)+1;
+
+        speed += diff;
+
+        if (spawnDementor >= 5 && spawnDementor <= 10) {
+            new Dementor(pane);
+        }
+    }
+
+    public void dementorTouch() {
+        for (int i = 0; i < (this.snakeLength/2); i++) {
+            SnakeBody doublePart = new SnakeBody(pane, tail);
+            tail = doublePart;
+        }
+        this.snakeLength *= 2;
+    }
+
 }

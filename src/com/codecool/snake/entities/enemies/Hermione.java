@@ -12,20 +12,32 @@ import javafx.scene.layout.Pane;
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
-public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
+public class Hermione extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private static final int damage = 10;
+    private static final int damage = 5;
 
-    public SimpleEnemy(Pane pane) {
+    public Hermione(Pane pane) {
         super(pane);
 
-        setImage(Globals.simpleEnemy);
+        setImage(Globals.Hermione);
         pane.getChildren().add(this);
-        int speed = 1;
+        int speed = 2;
         Random rnd = new Random();
+
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+
+        double width = rnd.nextDouble() * Globals.WINDOW_WIDTH;
+        double height = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+        if(Globals.snakeHead.getHeight() != height || Globals.snakeHead.getWidth() != width){
+            setX(width);
+            setY(height);
+        } else {
+            setX(width + 150);
+            setY(height + 150);
+        }
+
 
         double direction = rnd.nextDouble() * 360;
         setRotate(direction);
@@ -36,19 +48,24 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public void step() {
         if (isOutOfBounds()) {
             destroy();
+            new Hermione(pane);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        Globals.hermioneX = getX();
+        Globals.hermioneY = getY();
     }
 
     @Override
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        new Hermione(pane);
     }
 
     @Override
     public String getMessage() {
-        return "10 damage";
+        return "5 damage";
     }
 }

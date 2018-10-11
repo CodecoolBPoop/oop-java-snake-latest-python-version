@@ -1,6 +1,9 @@
 package com.codecool.snake;
 
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.ChocolateFrog;
+import com.codecool.snake.entities.enemies.Harry;
+import com.codecool.snake.entities.enemies.Hermione;
+import com.codecool.snake.entities.enemies.Ron;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.text.GameText;
@@ -11,6 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.scene.Scene;
 
 public class Game extends Pane {
 
@@ -21,12 +27,11 @@ public class Game extends Pane {
         createButton("Two Players", Globals.WINDOW_WIDTH * 0.4, Globals.WINDOW_HEIGHT * 0.4, gameMode, this);
 
 
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
+        new Harry(this);
+        new Ron(this);
+        new Hermione(this);
 
-        new SimplePowerup(this);
+        new ChocolateFrog(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
@@ -51,6 +56,7 @@ public class Game extends Pane {
                 case RIGHT: Globals.rightKeyDown  = true; break;
                 case A: Globals.aKeyDown = true; break;
                 case D: Globals.dKeyDown = true; break;
+                case ESCAPE: Globals.escKeyDown = true; break;
             }
         });
 
@@ -60,6 +66,7 @@ public class Game extends Pane {
                 case RIGHT: Globals.rightKeyDown  = false; break;
                 case A: Globals.aKeyDown = false; break;
                 case D: Globals.dKeyDown = false; break;
+                case ESCAPE: Globals.escKeyDown = false; break;
             }
 
         // restart
@@ -109,4 +116,9 @@ public class Game extends Pane {
         Globals.isGameOver = false;
         makeObjects();
     };
+    }
+    public void setBackground(Image tableBackground) {
+        setBackground(new Background(new BackgroundImage(tableBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 }

@@ -3,6 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.text.GameText;
+import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.animation.AnimationTimer;
 
 public class GameLoop extends AnimationTimer {
@@ -16,8 +17,10 @@ public class GameLoop extends AnimationTimer {
                 animObject.step();
             }
         }
+
         Globals.gameObjects.addAll(Globals.newGameObjects);
         Globals.newGameObjects.clear();
+
 
         Globals.gameObjects.removeAll(Globals.oldGameObjects);
         Globals.oldGameObjects.clear();
