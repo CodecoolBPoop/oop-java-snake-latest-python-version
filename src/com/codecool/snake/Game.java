@@ -1,5 +1,8 @@
 package com.codecool.snake;
 
+//import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.ChocolateFrog;
+import com.codecool.snake.entities.powerups.Dementor;
 import com.codecool.snake.entities.enemies.Harry;
 import com.codecool.snake.entities.enemies.Hermione;
 import com.codecool.snake.entities.enemies.Ron;
@@ -18,7 +21,7 @@ public class Game extends Pane {
         new Ron(this);
         new Hermione(this);
 
-        new SimplePowerup(this);
+        new ChocolateFrog(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
@@ -30,6 +33,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = true; break;
                 case RIGHT: Globals.rightKeyDown  = true; break;
+                case ESCAPE: Globals.escKeyDown = true; break;
             }
         });
 
@@ -37,6 +41,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = false; break;
                 case RIGHT: Globals.rightKeyDown  = false; break;
+                case ESCAPE: Globals.escKeyDown = false; break;
             }
         });
         Globals.gameLoop = new GameLoop();

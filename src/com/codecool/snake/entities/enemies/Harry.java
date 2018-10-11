@@ -28,7 +28,15 @@ public class Harry extends GameEntity implements Animatable, Interactable {
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
-
+        double width = rnd.nextDouble() * Globals.WINDOW_WIDTH;
+        double height = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+        if(Globals.snakeHead.getHeight() != height || Globals.snakeHead.getWidth() != width){
+            setX(width);
+            setY(height);
+        } else {
+            setX(width + 150);
+            setY(height + 150);
+        }
         double direction = rnd.nextDouble() * 360;
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
