@@ -3,11 +3,11 @@ package com.codecool.snake;
 import com.codecool.snake.entities.enemies.Harry;
 import com.codecool.snake.entities.enemies.Hermione;
 import com.codecool.snake.entities.enemies.Ron;
-//import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 
 public class Game extends Pane {
 
@@ -17,7 +17,6 @@ public class Game extends Pane {
         new Harry(this);
         new Ron(this);
         new Hermione(this);
-        //new SimpleEnemy(this);
 
         new SimplePowerup(this);
         new SimplePowerup(this);
@@ -42,5 +41,11 @@ public class Game extends Pane {
         });
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
+    }
+
+    public void setBackground(Image tableBackground) {
+        setBackground(new Background(new BackgroundImage(tableBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
     }
 }

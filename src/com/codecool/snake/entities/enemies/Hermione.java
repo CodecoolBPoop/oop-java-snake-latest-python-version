@@ -24,8 +24,10 @@ public class Hermione extends GameEntity implements Animatable, Interactable {
         pane.getChildren().add(this);
         int speed = 2;
         Random rnd = new Random();
+
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+
 
         double direction = rnd.nextDouble() * 360;
         setRotate(direction);
@@ -40,6 +42,9 @@ public class Hermione extends GameEntity implements Animatable, Interactable {
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        Globals.hermioneX = getX();
+        Globals.hermioneY = getY();
     }
 
     @Override

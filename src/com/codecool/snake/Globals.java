@@ -20,6 +20,16 @@ public class Globals {
     public static Image Ron = new Image("ron.png");
     public static Image Hermione = new Image("hermione.png");
     public static Image powerupBerry = new Image("powerup_berry.png");
+    public static Image background = new Image("hogwarts.png");
+    public static double snakeHeadX;
+    public static double snakeHeadY;
+    public static double harryX;
+    public static double harryY;
+    public static double ronX;
+    public static double ronY;
+    public static double hermioneX;
+    public static double hermioneY;
+
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;

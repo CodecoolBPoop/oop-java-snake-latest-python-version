@@ -5,6 +5,7 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
+import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 
@@ -38,8 +39,13 @@ public class SnakeHead extends GameEntity implements Animatable {
         // set rotation and position
         setRotate(dir);
         Point2D heading = Utils.directionToVector(dir, speed);
+
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        Globals.snakeHeadX = getX();
+        Globals.snakeHeadY = getY();
+
 
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
