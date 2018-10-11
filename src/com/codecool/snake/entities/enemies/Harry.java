@@ -30,6 +30,7 @@ public class Harry extends GameEntity implements Animatable, Interactable {
 
         double width = rnd.nextDouble() * Globals.WINDOW_WIDTH;
         double height = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+
         if(Globals.snakeHead.getHeight() != height || Globals.snakeHead.getWidth() != width){
             setX(width);
             setY(height);

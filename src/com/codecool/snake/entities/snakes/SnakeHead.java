@@ -81,7 +81,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         // set rotation
         setRotate(dir);
 
-        Point2D heading = Utils.directionToVector(dir, speed);
+        Point2D heading = Utils.directionToVector(dir, Globals.speed1);
 
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -199,7 +199,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         Random rnd = new Random();
         int spawnDementor = rnd.nextInt(100)+1;
 
-        speed += diff;
+        Globals.speed1 += diff;
 
         if (spawnDementor >= 5 && spawnDementor <= 10) {
             new Dementor(pane);
@@ -208,7 +208,7 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     public void dementorTouch() {
         for (int i = 0; i < (this.snakeLength/2); i++) {
-            SnakeBody doublePart = new SnakeBody(pane, tail);
+            SnakeBody doublePart = new SnakeBody(pane, tail, this);
             tail = doublePart;
         }
         this.snakeLength *= 2;

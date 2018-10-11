@@ -23,8 +23,6 @@ public class Globals {
     public static Image snakeHead2 = new Image("snake_head.png");
     public static Image snakeBody = new Image("snake_body.png");
     public static Image snakeBody2 = new Image("snake_body.png");
-    public static Image simpleEnemy = new Image("simple_enemy.png");
-    public static Image powerupBerry = new Image("powerup_berry.png");
     public static Image frog = new Image("frog.png");
     public static Image dementorJar = new Image("dementor.png");
     public static Image Harry = new Image("harry.png");
@@ -51,7 +49,6 @@ public class Globals {
 
     public static boolean leftKeyDown;
     public static boolean rightKeyDown;
-    public static boolean escKeyDown;
     public static List<GameEntity> gameObjects;
     public static List<GameEntity> newGameObjects; // Holds game objects crated in this frame.
     public static List<GameEntity> oldGameObjects; // Holds game objects that will be destroyed this frame.
