@@ -214,7 +214,7 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     public void dementorTouch() {
         for (int i = 0; i < (this.snakeLength/2); i++) {
-            SnakeBody doublePart = new SnakeBody(pane, tail, this );
+            SnakeBody doublePart = new SnakeBody(pane, tail, this);
             tail = doublePart;
         }
         this.snakeLength *= 2;

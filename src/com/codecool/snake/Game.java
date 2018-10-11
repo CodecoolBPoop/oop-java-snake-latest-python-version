@@ -7,6 +7,7 @@ import com.codecool.snake.entities.enemies.Ron;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.text.GameText;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class Game extends Pane {
 
@@ -25,7 +26,6 @@ public class Game extends Pane {
         GameText.setStartText(this, "The Last Python", 0.335, 0.2, Color.BLACK, 50);
         createButton("Single Player", Globals.WINDOW_WIDTH * 0.4, Globals.WINDOW_HEIGHT * 0.3, gameMode, this);
         createButton("Two Players", Globals.WINDOW_WIDTH * 0.4, Globals.WINDOW_HEIGHT * 0.4, gameMode, this);
-
     }
 
     private void makeObjects() {
@@ -57,7 +57,6 @@ public class Game extends Pane {
                 case RIGHT: Globals.rightKeyDown  = true; break;
                 case A: Globals.aKeyDown = true; break;
                 case D: Globals.dKeyDown = true; break;
-                case ESCAPE: Globals.escKeyDown = true; break;
             }
         });
 
@@ -67,7 +66,6 @@ public class Game extends Pane {
                 case RIGHT: Globals.rightKeyDown  = false; break;
                 case A: Globals.aKeyDown = false; break;
                 case D: Globals.dKeyDown = false; break;
-                case ESCAPE: Globals.escKeyDown = false; break;
             }
 
         // restart
@@ -79,8 +77,16 @@ public class Game extends Pane {
             makeObjects();
             Globals.isGameOver = false;
             start();
+
         }
-    });
+        if (event.getCode() == KeyCode.ESCAPE) {
+            Globals.gameLoop.stop();
+            Globals.gameObjects.clear();
+            Globals.players.clear();
+            Platform.exit();
+        }
+
+        });
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
     }
@@ -125,6 +131,5 @@ public class Game extends Pane {
         setBackground(new Background(new BackgroundImage(tableBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-
     }
 }
