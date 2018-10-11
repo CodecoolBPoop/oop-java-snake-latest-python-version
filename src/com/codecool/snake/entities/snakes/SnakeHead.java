@@ -111,7 +111,7 @@ public class SnakeHead extends GameEntity implements Animatable {
                         Globals.gameLoop.stop();
                         Globals.isGameOver = true;
                     }
-                }
+                }/*
                 if (entity instanceof SnakeBody) {
                     SnakeBody body = (SnakeBody) entity;
                     if (body.getHead() != this || body.shouldIDestroyMyself()) {
@@ -122,7 +122,7 @@ public class SnakeHead extends GameEntity implements Animatable {
                         Globals.gameLoop.stop();
                         Globals.isGameOver = true;
                     }
-                }
+                }*/
             }
         }
 
@@ -200,7 +200,12 @@ public class SnakeHead extends GameEntity implements Animatable {
         Random rnd = new Random();
         int spawnDementor = rnd.nextInt(100)+1;
 
-        Globals.speed1 += diff;
+        if (snakeID == 1) {
+            Globals.speed1 += diff;
+        }
+        if (snakeID == 2) {
+            Globals.speed2 += diff;
+        }
 
         if (spawnDementor >= 5 && spawnDementor <= 10) {
             new Dementor(pane);

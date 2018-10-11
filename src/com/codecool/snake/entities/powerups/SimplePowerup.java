@@ -45,7 +45,7 @@ public class SimplePowerup extends GameEntity implements Interactable {
             snakeHead.changeHealth(10);
             snakeHead.changeScore(10);
         }else if (getImage() == Globals.powerupBerry_2) {
-            snakeHead.changeSpeed(-0.5);
+            snakeHead.changeSpeed(-0.25);
             snakeHead.changeScore(-10);
         }else if (getImage() == Globals.powerupBerry_3) {
             snakeHead.changeSpeed(0.25);

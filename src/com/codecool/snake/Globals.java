@@ -76,9 +76,9 @@ public class Globals {
     public static boolean multiPlayer;
 
     // Players stuff
-    public static int speed1;
+    public static double speed1;
     public static int turnRate1;
-    public static int speed2;
+    public static double speed2;
     public static int turnRate2;
     public static List<SnakeHead> players = new ArrayList<>();
     public static boolean aKeyDown;
