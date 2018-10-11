@@ -62,6 +62,7 @@ public class Ron extends GameEntity implements Animatable, Interactable {
     @Override
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
+        player.changeScore(-10);
         destroy();
         new Ron(pane);
     }

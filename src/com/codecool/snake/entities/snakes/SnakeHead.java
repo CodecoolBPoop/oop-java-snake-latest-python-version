@@ -29,14 +29,14 @@ public class SnakeHead extends GameEntity implements Animatable {
                 setImage(Globals.snakeHead);
                 Globals.snakeHealth1 = 100;
                 Globals.score1 = 0;
-                Globals.speed1 = 3;
+                Globals.speed1 = 1;
                 Globals.turnRate1 = 2;
                 break;
             case 2:
                 setImage(Globals.snakeHead2);
                 Globals.snakeHealth2 = 100;
                 Globals.score2 = 0;
-                Globals.speed2 = 3;
+                Globals.speed2 = 1;
                 Globals.turnRate2 = 2;
                 break;
             default:
@@ -50,6 +50,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     }
 
     public void step() {
+
         double dir = getRotate();
 
         if (snakeID == 1) {

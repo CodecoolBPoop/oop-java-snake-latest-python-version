@@ -26,17 +26,6 @@ public class Game extends Pane {
         GameText.setStartText(this, "The Last Python", 0.335, 0.2, Color.BLACK, 50);
         createButton("Single Player", Globals.WINDOW_WIDTH * 0.4, Globals.WINDOW_HEIGHT * 0.3, gameMode, this);
         createButton("Two Players", Globals.WINDOW_WIDTH * 0.4, Globals.WINDOW_HEIGHT * 0.4, gameMode, this);
-
-
-        new Harry(this);
-       // new Ron(this);
-       // new Hermione(this);
-
-       // new ChocolateFrog(this);
-       // new SimplePowerup(this);
-       // new SimplePowerup(this);
-       // new SimplePowerup(this);
-
     }
 
     private void makeObjects() {
@@ -46,6 +35,17 @@ public class Game extends Pane {
         if (Globals.multiPlayer) {
             new SnakeHead(this, 400, 500, 2);
             new GameText(this, 2);
+        }
+
+        if (Globals.status) {
+            new Harry(this);
+            new Ron(this);
+            new Hermione(this);
+
+            new ChocolateFrog(this);
+            new SimplePowerup(this);
+            new SimplePowerup(this);
+            new SimplePowerup(this);
         }
     }
 
@@ -114,15 +114,19 @@ public class Game extends Pane {
     }
 
     private EventHandler<ActionEvent> gameMode = e -> {
+
         if (e.getTarget().toString().contains("Single Player")) {
             Globals.multiPlayer = false;
+            Globals.status = true;
         } else {
             Globals.multiPlayer = true;
+            Globals.status = true;
         }
         this.getChildren().clear();
         Globals.isGameOver = false;
         makeObjects();
     };
+
     public void setBackground(Image tableBackground) {
         setBackground(new Background(new BackgroundImage(tableBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,

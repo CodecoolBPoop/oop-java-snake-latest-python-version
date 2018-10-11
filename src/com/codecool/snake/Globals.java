@@ -15,6 +15,7 @@ import java.util.List;
 // class for holding all static stuff
 public class Globals {
 
+    public static boolean status = false;
     private static Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
     public static final double WINDOW_WIDTH = primaryScreenBounds.getWidth();
     public static final double WINDOW_HEIGHT = primaryScreenBounds.getHeight();
@@ -29,7 +30,7 @@ public class Globals {
     public static Image Ron = new Image("ron.png");
     public static Image Hermione = new Image("hermione.png");
 
-    public static Image background = new Image("hogwarts.png");
+
     public static double snakeHeadX;
     public static double snakeHeadY;
     public static double harryX;

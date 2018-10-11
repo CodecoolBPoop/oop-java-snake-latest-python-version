@@ -29,7 +29,6 @@ public class ChocolateFrog extends GameEntity implements Animatable, Interactabl
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
     }
-
     @Override
     public void step() {
         Random rnd = new Random();
@@ -51,6 +50,7 @@ public class ChocolateFrog extends GameEntity implements Animatable, Interactabl
     @Override
     public void apply(SnakeHead snakeHead) {
         snakeHead.addPart(4);
+        snakeHead.changeScore(15);
         destroy();
         new ChocolateFrog(pane);
     }
