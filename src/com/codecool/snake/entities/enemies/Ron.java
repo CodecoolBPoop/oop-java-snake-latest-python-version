@@ -25,6 +25,10 @@ public class Ron extends GameEntity implements Animatable, Interactable {
         pane.getChildren().add(this);
         int speed = 1;
         Random rnd = new Random();
+
+        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
+        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+      
         double width = rnd.nextDouble() * Globals.WINDOW_WIDTH;
         double height = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
         if(Globals.snakeHead.getHeight() != height || Globals.snakeHead.getWidth() != width){
@@ -48,6 +52,11 @@ public class Ron extends GameEntity implements Animatable, Interactable {
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        Globals.ronX = getX();
+        Globals.ronY = getY();
+
+
     }
 
     @Override
@@ -56,6 +65,7 @@ public class Ron extends GameEntity implements Animatable, Interactable {
         destroy();
         new Ron(pane);
     }
+
 
     @Override
     public String getMessage() {

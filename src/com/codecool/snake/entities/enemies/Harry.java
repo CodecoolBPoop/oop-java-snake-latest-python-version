@@ -24,6 +24,10 @@ public class Harry extends GameEntity implements Animatable, Interactable {
         pane.getChildren().add(this);
         int speed = 1;
         Random rnd = new Random();
+
+        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
+        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+
         double width = rnd.nextDouble() * Globals.WINDOW_WIDTH;
         double height = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
         if(Globals.snakeHead.getHeight() != height || Globals.snakeHead.getWidth() != width){
@@ -46,6 +50,9 @@ public class Harry extends GameEntity implements Animatable, Interactable {
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        Globals.harryX = getX();
+        Globals.harryY = getY();
     }
 
     @Override
@@ -59,4 +66,5 @@ public class Harry extends GameEntity implements Animatable, Interactable {
     public String getMessage() {
         return "10 damage";
     }
+
 }
