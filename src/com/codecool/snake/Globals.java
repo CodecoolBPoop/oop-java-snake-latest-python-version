@@ -15,6 +15,7 @@ import java.util.List;
 // class for holding all static stuff
 public class Globals {
 
+    public static boolean status = false;
     private static Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
     public static final double WINDOW_WIDTH = primaryScreenBounds.getWidth();
     public static final double WINDOW_HEIGHT = primaryScreenBounds.getHeight();
@@ -23,8 +24,6 @@ public class Globals {
     public static Image snakeHead2 = new Image("snake_head.png");
     public static Image snakeBody = new Image("snake_body.png");
     public static Image snakeBody2 = new Image("snake_body.png");
-    public static Image simpleEnemy = new Image("simple_enemy.png");
-    public static Image powerupBerry = new Image("powerup_berry.png");
     public static Image frog = new Image("frog.png");
     public static Image dementorJar = new Image("dementor.png");
     public static Image Harry = new Image("harry.png");
