@@ -17,7 +17,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class Game extends Pane {
 
@@ -83,6 +88,7 @@ public class Game extends Pane {
             Globals.gameLoop.stop();
             Globals.gameObjects.clear();
             Globals.players.clear();
+            Game.stopMusic();
             Platform.exit();
         }
 
@@ -132,4 +138,18 @@ public class Game extends Pane {
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
     }
+
+    public static void music() {
+        try {
+            InputStream test = new FileInputStream("/home/afulop/codecool/OOP/3rd week/JavaSE_snake/oop-java-snake-latest-python-version/resources/hpTheme.wav");
+            Globals.BGM = new AudioStream(test);
+            AudioPlayer.player.start(Globals.BGM);
+        } catch (IOException e) {
+            System.out.println("Can't find file");
+
+        }
+    }
+        public static void stopMusic() {
+            AudioPlayer.player.stop(Globals.BGM);
+        }
 }

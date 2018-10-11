@@ -6,7 +6,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
-
+import sun.audio.AudioStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -82,6 +82,9 @@ public class Globals {
     public static List<SnakeHead> players = new ArrayList<>();
     public static boolean aKeyDown;
     public static boolean dKeyDown;
+
+    // Music
+    public static AudioStream BGM;
 
 
     static {

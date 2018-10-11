@@ -24,7 +24,8 @@ public class Main extends Application {
         primaryStage.setY(primaryScreenBounds.getMinY());
         primaryStage.setWidth(primaryScreenBounds.getWidth());
         primaryStage.setHeight(primaryScreenBounds.getHeight());
-        game.setBackground(new Image("background_with_szisza_size.png")); // wonder if work
+        game.setBackground(new Image("background_with_szisza_size.png"));
+        Game.music();
         primaryStage.show();
         primaryStage.setTitle("The Last Python");
         primaryStage.setScene(new Scene(game, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight()));

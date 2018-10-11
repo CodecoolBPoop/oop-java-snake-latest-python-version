@@ -175,8 +175,6 @@ public class SnakeHead extends GameEntity implements Animatable {
         }
         if (this.getSnakeID() == 2) {
             Globals.score2 += diff;
-        } else {
-            System.out.println("Scoring error");
         }
     }
 
