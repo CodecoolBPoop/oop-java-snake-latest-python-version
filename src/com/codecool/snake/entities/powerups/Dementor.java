@@ -25,6 +25,7 @@ public class Dementor extends GameEntity implements Interactable {
     @Override
     public void apply(SnakeHead snakeHead) {
         snakeHead.dementorTouch();
+        snakeHead.changeScore(50);
         destroy();
     }
 

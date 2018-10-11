@@ -50,7 +50,7 @@ public class ChocolateFrog extends GameEntity implements Animatable, Interactabl
     @Override
     public void apply(SnakeHead snakeHead) {
         snakeHead.addPart(4);
-        snakeHead.changeScore(10);
+        snakeHead.changeScore(15);
         destroy();
         new ChocolateFrog(pane);
     }
